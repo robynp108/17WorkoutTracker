@@ -2,19 +2,6 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-// const UserSchema = new Schema({
-//   name: {
-//     type: String,
-//     unique: true
-//   },
-//   notes: [
-//     {
-//       type: Schema.Types.ObjectId,
-//       ref: "Note"
-//     }
-//   ]
-// });
-
 const WorkoutSchema = new Schema({
     day: {
         type: Date,
@@ -55,6 +42,6 @@ const WorkoutSchema = new Schema({
     }]
 });
 
-const User = mongoose.model("Workout", UserSchema);
+const Workout = mongoose.model("Workout", WorkoutSchema);
 
-module.exports = User;
+module.exports = Workout;
