@@ -30,8 +30,10 @@ Functions include:
 
 ## Application URL
 
-https://robynp108.github.io/Homework5/
+https://calm-sierra-04622.herokuapp.com/
 
-## Application Screenshot
+## Application Screenshots
 
-![day planner screenshot](PlannerScreenshot.png)
+![dashboard screenshot](Dashboard.PNG)
+
+![add exercise screenshot](AddExercise.PNG)
