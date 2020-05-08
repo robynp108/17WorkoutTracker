@@ -6,8 +6,9 @@ let db = require("../models");
 //   useFindAndModify: false
 // });
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout"
+
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout"
 mongoose.connect(MONGODB_URI);
 
 

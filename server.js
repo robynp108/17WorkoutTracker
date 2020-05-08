@@ -16,8 +16,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout"
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout"
 mongoose.connect(MONGODB_URI);
 
 app.get("/stats", (req, res) => {
@@ -48,14 +49,20 @@ app.post("/api/workouts", (req, res) => {
     });
 });
 
+// app.get("/api/workouts/range", (req, res) => {
+//     db.Workout.find({}, (error, data) => {
+//         if (error) {
+//             res.send(error);
+//         } else {
+//             res.json(data);
+//         }
+//     });
+// });
+
 app.get("/api/workouts/range", (req, res) => {
-    db.Workout.find({}, (error, data) => {
-        if (error) {
-            res.send(error);
-        } else {
-            res.json(data);
-        }
-    });
+    db.Workout.find({}).limit(7)
+    .then(data => res.json(data))
+    .catch(error => res.send(error));
 });
 
 app.put("/api/workouts/:id", (req, res) => {
