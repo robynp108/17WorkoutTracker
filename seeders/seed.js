@@ -15,10 +15,12 @@ let db = require("../models");
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://WorkoutTrackerUser:WorkoutTrackerPW1@ds235840.mlab.com:35840/heroku_6ml9v6vw"
 mongoose.connect(MONGODB_URI);
 
+// mongoose.connection.db.Workout.dropCollection('workouts', function (err, result) { console.log('err: ' + err + ' result: ' + result) });
+
 
 let workoutSeed = [
   {
-    day: new Date().setDate(new Date().getDate()-10),
+    day: new Date().setDate(new Date().getDate() - 10),
     exercises: [
       {
         type: "resistance",
@@ -31,7 +33,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-9),
+    day: new Date().setDate(new Date().getDate() - 9),
     exercises: [
       {
         type: "resistance",
@@ -44,7 +46,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-8),
+    day: new Date().setDate(new Date().getDate() - 8),
     exercises: [
       {
         type: "resistance",
@@ -57,7 +59,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-7),
+    day: new Date().setDate(new Date().getDate() - 7),
     exercises: [
       {
         type: "cardio",
@@ -68,7 +70,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-6),
+    day: new Date().setDate(new Date().getDate() - 6),
     exercises: [
       {
         type: "resistance",
@@ -81,7 +83,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-5),
+    day: new Date().setDate(new Date().getDate() - 5),
     exercises: [
       {
         type: "resistance",
@@ -94,7 +96,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-4),
+    day: new Date().setDate(new Date().getDate() - 4),
     exercises: [
       {
         type: "resistance",
@@ -107,7 +109,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-3),
+    day: new Date().setDate(new Date().getDate() - 3),
     exercises: [
       {
         type: "resistance",
@@ -120,7 +122,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-2),
+    day: new Date().setDate(new Date().getDate() - 2),
     exercises: [
       {
         type: "resistance",
@@ -133,7 +135,7 @@ let workoutSeed = [
     ]
   },
   {
-    day: new Date().setDate(new Date().getDate()-1),
+    day: new Date().setDate(new Date().getDate() - 1),
     exercises: [
       {
         type: "resistance",
@@ -145,7 +147,7 @@ let workoutSeed = [
   }
 ];
 
-db.Workout.deleteMany({})
+mongoose.connection.dropCollection("workouts")
   .then(() => db.Workout.collection.insertMany(workoutSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
