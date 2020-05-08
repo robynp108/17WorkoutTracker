@@ -18,7 +18,10 @@ app.use(express.static("public"));
 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout"
+// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout"
+// mongoose.connect(MONGODB_URI);
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://WorkoutTrackerUser:WorkoutTrackerPW1@ds235840.mlab.com:35840/heroku_6ml9v6vw"
 mongoose.connect(MONGODB_URI);
 
 app.get("/stats", (req, res) => {
